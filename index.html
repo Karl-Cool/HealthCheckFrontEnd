@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Angular JSON server check</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://use.fontawesome.com/df17df5712.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="site.css" />
+</head>
+
+<body ng-app="app" ng-controller="appCtrl">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col">
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-info btn-sm" ng-click="getJSON()">Starta analys</button>
+                <button class="btn btn-outline-danger btn-sm" ng-click="stop()">Stoppa analys</button>
+                <div ng-show="activated">
+                    Analys kör:
+                    <i class="fa fa-spinner fa-spin" style="font-size:18px;color:LawnGreen"></i>
+                </div>
+                <div ng-show="stopped">
+                    Analys stoppad:
+                    <i class="fa fa-exclamation-circle" style="color:red"></i>
+                </div>
+                <br>
+                <div ng-show="activated">
+                <p ng-controller="appCtrl">Status: {{myData.status}}</p>
+                <p ng-controller="appCtrl">Antal processer: {{myData.nop}}</p>
+                <p ng-controller="appCtrl">Operativsystem: {{myData.caption}}</p>
+                <p ng-controller="appCtrl">Ledigt RAM-minne: {{myData.freememory}}MB / {{myData.totalmemory}}MB</p>
+                <p ng-controller="appCtrl">Status kontrollerad: {{myData.datetime}}</p>
+                <p>{{errorMessage}}</p>
+            </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</body>
+
+</html>
